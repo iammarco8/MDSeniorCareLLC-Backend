@@ -1,0 +1,34 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend for MDSeniorCareLLC",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "web": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcoDuhaney/MDSeniorCareLLC.git"
+  },
+  "author": "Marco Duhaney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcoDuhaney/MDSeniorCareLLC/issues"
+  },
+  "homepage": "https://github.com/MarcoDuhaney/MDSeniorCareLLC#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "html-to-text": "^9.0.5",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.11.5",
+    "nodemailer": "^6.9.16",
+    "nodemon": "^3.1.9"
+  }
+}
