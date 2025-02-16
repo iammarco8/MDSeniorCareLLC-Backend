@@ -26,5 +26,6 @@ app.use('/api/MDSeniorCareLLC/v1/ward', wardRouter);
 
 // const port = process.env.PORT;
 const port = process.env.PORT;
-const server = app.listen(port, ()=>
-console.log(`http://localhost:${port}/`));
+const server = app.listen(port, ()=>{
+console.log(`http://localhost:${port}/`);
+});
