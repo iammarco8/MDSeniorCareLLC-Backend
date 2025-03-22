@@ -28,10 +28,10 @@ export class Email{
                 port: 2525,
                 secure:false,
                 auth:{
-                    // user: process.env.MAILTRAP_USER,
-                    // pass: process.env.MAILTRAP_PASS
-                    user: 'marco.duhaney2023@gmail.com',
-                    pass: '5064006duhaney'
+                    user: process.env.MAILTRAP_USER,
+                    pass: process.env.MAILTRAP_PASS
+                    // user: 'marco.duhaney2023@gmail.com',
+                    // pass: '5064006duhaney'
                 }
             });
         }else{

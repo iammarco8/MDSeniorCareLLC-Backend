@@ -12,13 +12,14 @@ export const createWard = async(req, res, next)=>{
     , first_name
     , last_name
     , location
-    , phone_number)
+    , phone_number
+    ,r_to_customer)
     VALUES
-    (?,?,?,?,?);`
+    (?,?,?,?,?,?);`
     const nWard = await pool.query(sql,
         [
-            req.body.wCustId, req.body.wf_nm, 
-            req.body.wl_nm, req.body.wloc, req.body.wphn, 
+            req.body.wCustId, req.body.wf_nm, req.body.wl_nm, 
+            req.body.wloc, req.body.wphn, req.body.rtc
             
         ]
     )

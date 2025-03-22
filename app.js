@@ -10,8 +10,10 @@ import { wardRouter } from './routes/wardRouter.js';
 const app = express();
 
 app.set('view engine', ejs);
-app.options('*', cors(['http://localhost:4200']));
-app.use(cors(['http://localhost:4200']))
+app.options('*', cors(['https://mdseniorcarellc-backend.onrender.com']));
+app.use(cors(['https://mdseniorcarellc-backend.onrender.com']))
+// app.options('*', cors(['http://localhost:4200']));
+// app.use(cors(['http://localhost:4200']))
 
 app.use(express.json({limit:'5kb'}));
 app.use(express.urlencoded({
