@@ -1,3 +1,4 @@
+import { setInterval } from 'timers/promises';
 import { pool } from '../data/database.js';
 
 // email imports
@@ -5,6 +6,40 @@ import { pool } from '../data/database.js';
 
 // customer newsletter sign up function. 
 // should be used for emailing apppointment requests and posting reviews
+
+export const createFullClient = async(req, res, next)=>{
+    const sql = `INSERT INTO full_client
+    (
+    wf_nm
+    , wl_nm
+    , wloc
+    , wphn
+    , rtc
+    , f_nm
+    , l_nm
+    , email
+    )
+    VALUES
+    (?,?,?,?,?,?,?,?)`
+    const nEntry = pool.query(sql,
+        [
+            req.body.wf_nm, req.body.wl_nm, req.body.wloc, req.body.wphn, 
+            req.body.rtc, req.body.f_nm, req.body.l_nm, req.body.email
+        ]
+    )
+    if(nEntry.insertID <=0){
+        res.status(400).json({
+            status:'error',
+            message:'Check information and try again'
+        })
+    }else{
+        res.status(201).json({
+            status:'success',
+            message: 'data logged'
+        })
+    }
+}
+
 export const createShortCust = async(req, res,next)=>{
     const sql = ` INSERT INTO customer
     (
@@ -15,12 +50,14 @@ export const createShortCust = async(req, res,next)=>{
     )
     VALUES
     (?,?,?,?) `
+    // const nCustomer = await setInterval(pool.query(sql,
     const nCustomer = await pool.query(sql,
         [
             req.body.f_nm, req.body.l_nm, req.body.email,
             req.body.ward
         ]
     )
+    // , 10000)
     if(nCustomer.insertID <= 0){
         res.status(400).json({
             status: 'error',
@@ -45,7 +82,7 @@ export const createShortCust = async(req, res,next)=>{
 }
 
 // creating the customer (feature for future improvements)
-export const createCustomer = async(req, resizeBy, next) =>{
+export const createCustomer = async(req, res, next) =>{
     const sql =`INSERT INTO customer
     (
     first_name
