@@ -6,6 +6,7 @@ import ejs from 'ejs';
 
 import { customerRouter } from './routes/customerRouter.js';
 import { wardRouter } from './routes/wardRouter.js';
+import { userRouter } from './routes/userRouter.js';
 
 const app = express();
 
@@ -24,6 +25,7 @@ if(process.env.NODE_ENV !== 'production') app.use(morgan('dev'));
 
 // route connections
 app.use('/api/MDSeniorCareLLC/v1/customer', customerRouter);
+app.use('/api/MDSeniorCareLLC/v1/currentUser', userRouter);
 app.use('/api/MDSeniorCareLLC/v1/ward', wardRouter);
 
 // const port = process.env.PORT;

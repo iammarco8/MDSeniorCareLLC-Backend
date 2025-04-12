@@ -161,3 +161,21 @@ export const deleteCustomer = async(req, res, next)=>{
         })
     };
 }
+
+export const fullClientList = async(req,res,_next)=>{
+    const [customer] = await pool.query(
+        `SELECT * FROM full_client`)
+    if (customer.length > 0 ){
+        res.status(200).json({
+            status:'success',
+            results: 'customer.length',
+            data:{customer:customer}
+        });
+    }else{
+        res.status(404).json({
+            status: 'error',
+            message:'customer does not exist'
+        });
+
+    }
+}
